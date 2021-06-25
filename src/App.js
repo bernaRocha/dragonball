@@ -1,54 +1,60 @@
-import React from 'react';
+import React from 'react'
 
-// Components
-import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
-import { Switch, Route } from 'react-router-dom'
-import { ReadAll } from './Components/ReadAll/Readall'
-import { Create } from './Components/Create/Create'
-import { DeleteAll } from './Components/DeleteAll/Deletall'
-import { About } from './Components/About/About'
+// ROUTES
+import { Route, Switch } from 'react-router-dom'
 
-// Assets
-import logo from './Img/logo.png'
-
-// Styles 
+// BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './Styles/App.scss';
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
 
+// COMPONENTS
+import { ReadAll } from './Components/ReadAll/ReadAll'
+import { ReadSingle } from './Components/ReadSingle/ReadSingle'
+import { Create } from './Components/Create/Create'
+import { DeleteAll } from './Components/DeleteAll/DeleteAll'
+import { About } from './Components/About/About'
+import { Delete } from './Components/Delete/Delete'
+import { Update } from './Components/Update/Update'
+
+// STYLES
+import './Styles/App.scss'
+
+// ASSETS
+import logo from './Img/logo.png'
 
 function App() {
   return (
     <>
-      <div className='logoBar'>
-        <img className='logoImg' src={logo} alt='Logo do anime Dragon Ball Z' />
+      <div className="logoBar">
+        <img className="logoImg" src={logo} alt="Logo do anime Dragonball Z" />
       </div>
 
-    
-      <Navbar className='justify-content-center' expand='sm'>
+      <Navbar className="justify-content-center" expand="sm">
         <Nav>
-          <Nav.Link id='link-style' href='/'>Início</Nav.Link>
-          <Nav.Link id='link-style' href='/create'>Criar</Nav.Link>
-          <Nav.Link id='link-style' href='/delete-all'>Deletar tudo</Nav.Link>
-          <Nav.Link id='link-style' href='/about'>Sobre</Nav.Link>
-          
-          
+          <Nav.Link id="link-style" href="/">Início</Nav.Link>
+          <Nav.Link id="link-style" href="/create">Criar</Nav.Link>
+          <Nav.Link id="link-style" href="/delete-all">Deletar Tudo</Nav.Link>
+          <Nav.Link id="link-style" href="/about">Sobre</Nav.Link>
         </Nav>
       </Navbar>
 
-      <Container className='app-container'>
+      <Container className = "app-container">
         <Row>
           <Col>
             <Switch>
-              <Route path='/' exact={true} component={ReadAll}></Route>
-              <Route path='/create' component={Create}></Route>
-              <Route path='/delete-all' component={DeleteAll}></Route>
-              <Route path='/about' component={About}></Route>
+              <Route path="/" exact={true} component={ReadAll}></Route>
+              <Route path="/create" component={Create}></Route>
+              <Route path="/delete-all" component={DeleteAll}></Route>
+              <Route path="/about" component={About}></Route>
+              <Route path="/view/:id" component={ReadSingle}></Route>
+              <Route path="/delete/:id" component={Delete}></Route>
+              <Route path="/update/:id" component={Update}></Route>
             </Switch>
-
           </Col>
         </Row>
       </Container>
-    </>    
+
+    </>
   );
 }
 

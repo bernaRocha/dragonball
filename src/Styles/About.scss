@@ -1,0 +1,21 @@
+.btn.btn-primary {
+  background-color: #de0010;
+  border-color: #ffffff;
+}
+
+.btn.btn-primary:hover {
+  background-color: #db222f;
+  border-color: #ffffff;
+}
+
+.avatar {
+  align-content: middle;
+  width:50%;
+  border-radius: 210px;
+}
+
+.card{
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center
+}
